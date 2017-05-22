@@ -10,6 +10,7 @@ import 'rxjs/add/operator/catch';
 export class StartupService {
 
     private _startupData: any;
+    // data;
 
     constructor(private http: Http) { }
 
@@ -21,6 +22,7 @@ export class StartupService {
 
         return this.http
             .get('/config')
+            // .get('/assets/staticSettings.json')   //('/config')
             .map((res: Response) => res.json())
             .toPromise()
             .then((data: any) => this._startupData = data)
