@@ -77,8 +77,8 @@ http.createServer(function (req, res) {
 console.log(`Server listening on port ${port}`);
 
 const appSettings = {};
-const envVariables = Object.keys(process.env).map(function (key, index, array) {
-  if (key === 'APPSETTING_MYURL')
+Object.keys(process.env).map(function (key, index, array) {
+  //if (key === 'APPSETTING_MYURL')
     appSettings[key] = process.env[key];
 });
 
