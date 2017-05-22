@@ -29,11 +29,11 @@ export function startupServiceFactory(startupService: StartupService): Function 
     HttpModule,
     RouterModule.forRoot([{
       path: 'second',
-      component: SecondviewComponent
+      component: SecondviewComponent,
     },{
       path: 'error',
       component: ErrorComponent
-    }])
+    }],{ useHash: true})
   ],
   providers: [
     HttpModule,
