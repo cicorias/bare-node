@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs';
 
+import { environment } from '../environments/environment';
+
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/catch';
@@ -22,7 +24,6 @@ export class StartupService {
 
         return this.http
             .get('/config')
-            // .get('/assets/staticSettings.json')   //('/config')
             .map((res: Response) => res.json())
             .toPromise()
             .then((data: any) => this._startupData = data)
@@ -32,4 +33,19 @@ export class StartupService {
     get startupData(): any {
         return this._startupData;
     }
+
+    get gatewayApiHost():string {
+        let rv = this.startupData["APPSETTING_URL"] 
+            || environment.gatewayApiHost || 'http://localhost:3030';
+        console.log('gatewayHost: %s', rv);
+        return rv;
+    }
+
+    get anotherWay():string {
+        return this.startupData["APPSETTING_URL"];
+    }
+
+    //this fails to work as the accessor is not ready and load() hasn't run either.
+    //public gwurl = this._startupData["APPSETTING_URL"] || "not loaded yet";
+
 }

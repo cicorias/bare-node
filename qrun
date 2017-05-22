@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-pushd dist && APPSETTING_MYURL=http://goaway.com nodemon ../app.js && popd
-
-

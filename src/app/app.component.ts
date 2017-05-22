@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
     constructor(private startup: StartupService, private router: Router, private titleService: Title) { }
 
     title = "My site";
-    startupData: string;
+    //startupData: string;
 
     ngOnInit() {
 
@@ -31,9 +31,7 @@ export class AppComponent implements OnInit {
         }
 
         this.setTitle("Your Site..");
-
-
-        this.startupData = JSON.stringify(this.startup.startupData);
+        //this.startupData = JSON.stringify(this.startup.startupData);
     
     }
 

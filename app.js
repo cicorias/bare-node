@@ -78,7 +78,7 @@ console.log(`Server listening on port ${port}`);
 
 const appSettings = {};
 Object.keys(process.env).map(function (key, index, array) {
-  //if (key === 'APPSETTING_MYURL')
+  if (key.startsWith('APPSETTING_'))
     appSettings[key] = process.env[key];
 });
 

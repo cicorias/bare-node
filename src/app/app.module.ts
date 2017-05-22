@@ -10,12 +10,9 @@ import { StartupService } from './startup.service';
 import { SecondviewComponent } from './secondview/secondview.component';
 import { ErrorComponent } from './error/error.component';
 
-
 export function startupServiceFactory(startupService: StartupService): Function {
   return () => startupService.load();
 }
-
-
 
 @NgModule({
   declarations: [
