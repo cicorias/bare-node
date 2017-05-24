@@ -34,14 +34,14 @@ export class StartupService {
         return this._startupData;
     }
 
-    get gatewayApiHost():string {
-        let rv = this.startupData["APPSETTING_URL"] 
+    get gatewayApiHost(): string {
+        let rv = this.startupData["APPSETTING_URL"]
             || environment.gatewayApiHost || 'http://localhost:3030';
         console.log('gatewayHost: %s', rv);
         return rv;
     }
 
-    get anotherWay():string {
+    get anotherWay(): string {
         return this.startupData["APPSETTING_URL"];
     }
 

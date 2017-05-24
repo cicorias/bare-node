@@ -1,4 +1,16 @@
-//https://gist.github.com/amejiarosario/53afae82e18db30dadc9bc39035778e5
+'use strict';
+/* This is a non-dependancy static server that offers no caching, etc.
+ * it provides several mime types, in addition a single /config endpoint
+ * that will run a filter on the environment variables serverside.
+ * The intent is that settings prefixed with APPSETTING_ are bundled into a flat
+ * json object. This allows use in Azure WebApps and app settings which are 
+ * configurage at deployment and at anypoint after deployment.
+ * The core of this was taken from this gist: //https://gist.github.com/amejiarosario/53afae82e18db30dadc9bc39035778e5
+ *
+ * 
+ * Shawn Cicoria May 23, 2017
+ */
+
 const http = require('http');
 const url = require('url');
 const fs = require('fs');
